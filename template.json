@@ -1,0 +1,30 @@
+{
+    "variables": {
+        "ssh_name": "vagrant",
+        "ssh_pass": "vagrant",
+        "hostname": "go-dev-env",
+        "vm-name": "go-dev"
+    },
+
+    "builders": [{
+        "type": "virtualbox-iso",
+        "guest_os_type": "Ubuntu_64",
+
+        "vboxmanage": [
+            ["modifyvm", "{{.Name}}", "--memory", "8189"],
+            ["modifyvm", "{{.Name}}", "--cpus", "2"]
+        ],
+
+        "disk_size" : 20000,
+
+        "iso_url": "http://releases.ubuntu.com/14.04.3/ubuntu-14.04.3-desktop-amd64.iso",
+        "iso_checksum": "cab6dd5ee6d649ed1b24e807c877c0ae",
+        "iso_checksum_type": "md5",
+
+        "ssh_username": "{{user `ssh_name`}}",
+        "ssh_password": "{{user `ssh_pass`}}",
+        "ssh_wait_timeout": "20m",
+
+        "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
+    }]
+}

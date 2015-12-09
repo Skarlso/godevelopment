@@ -1,0 +1,12 @@
+application {
+    name = "go-dev-env"
+    type = "custom"
+}
+
+customization "build" {
+    packer = "template.json"
+}
+
+customization "dev" {
+    vagrantfile = "Vagrantfile"
+}
