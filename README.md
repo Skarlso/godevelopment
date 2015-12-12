@@ -47,10 +47,10 @@ For vim [vim-go](https://github.com/fatih/vim-go) is configured and ready to be 
 * Numbered Lines
 * Highlight search results
 * A few key bindings
- * <F8> :TagbarToggle
- * <F10> :UpdateTags
- * <C-n> :NERDTreeToggle
- * <F7> :tabnew
+ * F8 :TagbarToggle
+ * F10 :UpdateTags
+ * C-n :NERDTreeToggle
+ * F7 :tabnew
 
 Environment
 -----------
