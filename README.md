@@ -77,6 +77,28 @@ In order to do that, please uncomment this line in Vagrantfile:
 #config.vm.provision "shell", path: "install_docker.sh"
 ```
 
+Otto
+====
+
+To Start otto you have to have the binary which you can download from here: [Install Otto](https://ottoproject.io/intro/getting-started/install.html).
+
+Build the infrastructure using Packer template.
+
+```
+otto build
+```
+
+For now, because AWS is hardcoded into everything, if you don't want to use it, just press enter and give it a bogus passphrase.
+
+After that, start the dev environment.
+
+```
+otto dev
+```
+
+Note: I encountered several problems while using otto. This just shows how immature otto is currently, and even though we are give some customization options, it uses a lot of Magic, which I do not like. Magic always leads to problems.
+
+
 Support
 =======
 
