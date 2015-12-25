@@ -16,6 +16,20 @@ Please note, that for vagrant to work, you need an appropriate virtualization ag
 
 [VirtualBox Installation Guide](https://www.virtualbox.org/manual/ch02.html)
 
+Also, because values are setup using Vagrant Env plugin, make sure you run:
+
+```
+vagrant plugin install vagrant-env
+```
+
+Variables
+---------
+
+Environment variables that can be used (also their default value) => 
+* VAGRANT_BOX = like ubuntu/trusty64
+* GO_VM_MEMORY = 6024
+* GO_VM_NAME = go_development
+* GO_VM_CPU = 2
 
 The Environment
 ===============
