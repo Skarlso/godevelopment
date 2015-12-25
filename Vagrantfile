@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.box = ENV['VAGRANT_BOX']
+  config.vm.box = "ubuntu/trusty64" unless ENV['VAGRANT_BOX']
   config.vm.network "forwarded_port", guest: 32768, host: 32768
   config.vm.synced_folder "data", "/vagrant_data"
   config.vm.provider "virtualbox" do |vb|
@@ -14,9 +14,9 @@ Vagrant.configure(2) do |config|
     vb.gui = false
 
     # Customize the amount of memory on the VM:
-    vb.memory = 6024
-    vb.name = "go_development"
-    vb.cpus = 2
+    vb.memory = 6024 unless ENV['GO_VM_MEMORY'] 
+    vb.name = "go_development" unless ENV['GO_VM_NAME']
+    vb.cpus = 2 unless ENV['GO_VM_CPU']
   end
   config.vm.provision "shell", path: "install_utils.sh"
   config.vm.provision "shell", path: "configure_vim.sh", privileged: false
