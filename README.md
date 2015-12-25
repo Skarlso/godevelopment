@@ -86,9 +86,9 @@ Docker
 
 Originally I'm using this environment to develop Docker, so I need docker setup as well. This installs docker-engine and adds vagrant user to the sudo docker group so docker can be called without sudo.
 
-In order to do that, please uncomment this line in Vagrantfile:
+In order to do that, please set the following environment variable:
 ```
-#config.vm.provision "shell", path: "install_docker.sh"
+export INSTALL_DOCKER=true
 ```
 
 Otto
