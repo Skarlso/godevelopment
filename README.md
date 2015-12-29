@@ -88,7 +88,7 @@ Originally I'm using this environment to develop Docker, so I need docker setup 
 
 In order to do that, please set the following environment variable:
 ```
-export INSTALL_DOCKER=true
+INSTALL_DOCKER=true vagrant up
 ```
 
 Otto
