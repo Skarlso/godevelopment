@@ -25,11 +25,14 @@ vagrant plugin install vagrant-env
 Variables
 ---------
 
+You need to export these variables into a ```.env``` file.
+
 Environment variables that can be used (also their default value) => 
-* VAGRANT_BOX = like ubuntu/trusty64
-* GO_VM_MEMORY = 6024
-* GO_VM_NAME = go_development
-* GO_VM_CPU = 2
+* VAGRANT_BOX=ubuntu/trusty64
+* GO_VM_MEMORY=6024
+* GO_VM_NAME=go_development
+* GO_VM_CPU=2
+* INSTALL_DOCKER=true
 
 The Environment
 ===============
@@ -88,7 +91,7 @@ Originally I'm using this environment to develop Docker, so I need docker setup 
 
 In order to do that, please set the following environment variable:
 ```
-INSTALL_DOCKER=true vagrant up
+echo INSTALL_DOCKER=true > .env && vagrant up
 ```
 
 Otto
