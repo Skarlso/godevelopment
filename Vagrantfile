@@ -19,12 +19,12 @@ Vagrant.configure(2) do |config|
     # Display the VirtualBox GUI when booting the machine
     vb.gui = false
 
-    vb.memory = memory 
-    vb.name = name 
+    vb.memory = memory
+    vb.name = name
     vb.cpus = cpus
   end
   puts " --------------------------------------------------------------------------------------------------------"
-  puts "               memory                             name                             CPUS               " 
+  puts "               memory                             name                             CPUS               "
   puts " --------------------------------------------------------------------------------------------------------"
   puts "                 #{memory}                         #{name}                          #{cpus}           "
   puts " --------------------------------------------------------------------------------------------------------"
@@ -32,9 +32,10 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", path: "configure_vim.sh", privileged: false
   config.vm.provision "shell", path: "install_go.sh"
   if ENV['INSTALL_DOCKER']
-      puts " ------------------- "
-      puts "|Installing Docker..|"
-      puts " ------------------- "
       config.vm.provision "shell", path: "install_docker.sh"
+  end
+
+  if ENV['INSTALL_HUGO']
+      config.vm.provision "shell", path: "install_hugo.sh", args: ENV['HUGO_REPO'] ? ENV['HUGO_REPO'] : "spf13"
   end
 end
