@@ -94,6 +94,15 @@ In order to do that, please set the following environment variable:
 echo INSTALL_DOCKER=true > .env && vagrant up
 ```
 
+Hugo
+----
+
+[Hugo](https://gohugo.io) is a choice install, just like Docker. One of Hugo's dependencies requires mercurial which is also getting installed. Installing Hugo is similar to Docker.
+
+```
+echo INSTALL_HUGO=true > .env && vagrant up
+```
+
 Otto
 ====
 
