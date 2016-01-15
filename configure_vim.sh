@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Redirect the output into a log file, because vim +PluginInstall messes up the terminal
+logfile=vim_config.log
+exec > $logfile 2>&1
+
 git clone https://github.com/VundleVim/Vundle.vim.git /home/vagrant/.vim/bundle/Vundle.vim
 
 mkdir /home/vagrant/.vim/colors
