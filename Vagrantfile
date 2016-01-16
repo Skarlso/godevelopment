@@ -30,12 +30,13 @@ Vagrant.configure(2) do |config|
   puts " --------------------------------------------------------------------------------------------------------"
   config.vm.provision "shell", path: "install_utils.sh"
   config.vm.provision "shell", path: "configure_vim.sh", privileged: false
-  config.vm.provision "shell", path: "install_go.sh"
+  config.vm.provision "shell", path: "install_go.sh", privileged: false
   if ENV['INSTALL_DOCKER']
       config.vm.provision "shell", path: "install_docker.sh"
   end
 
   if ENV['INSTALL_HUGO']
-      config.vm.provision "shell", path: "install_hugo.sh", args: ENV['HUGO_REPO'] ? ENV['HUGO_REPO'] : "spf13"
+      config.vm.provision "shell", path: "install_hugo.sh", args: ENV['HUGO_REPO'] ? ENV['HUGO_REPO'] : "spf13", privileged: false
   end
+  config.vm.provision "shell", path: "source_bashrc.sh", privileged: false
 end
