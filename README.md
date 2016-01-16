@@ -124,6 +124,11 @@ GoInstallBinaries #Will look like this -> :GoInstallBinaries with the colon.
 
 This will install all of the remaining dependencies and you should be ready to build away.
 
+Troubleshooting Docker
+----------------------
+
+There is a slight problem with Vim, not being able to find "github.com/docker/docker/autogen/dockerversion". This is because of various reasons docker not following the way where you could easily get all of it's dependencies with go get -u -f -t... Should go away after make. If not, just comment that line out and work. Just don't forget to comment it back in....
+
 Hugo
 ----
 
