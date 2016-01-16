@@ -106,6 +106,24 @@ In order to do that, please set the following environment variable in .env:
 echo INSTALL_DOCKER=true > .env && vagrant up
 ```
 
+Docker will be installed with go get github.com/YOURREPO/docker and then I'm running a go get ./... in the Docker folder. This will install most of the third party stuff which Docker will require if you would like to use VimGo.
+
+After that, it is advised that you run the following commands:
+
+```bash
+make test
+make deb # Will take a long time
+make # After deb, this will probably not run that long
+```
+
+These commands will install everything else that docker requires. Once you open up a file in Vim-Go run the following command by pressing the colon key.
+
+```bash
+:GoInstallBinaries
+```
+
+This will install all of the remaining dependencies and you should be ready to build away.
+
 Hugo
 ----
 
