@@ -116,10 +116,10 @@ make deb # Will take a long time
 make # After deb, this will probably not run that long
 ```
 
-These commands will install everything else that docker requires. Once you open up a file in Vim-Go run the following command by pressing the colon key.
+These commands will install everything else that docker requires. Vim-Go can after that take care of all the other dependencies. Just navigate to your repository under ```~/gohome/src/github.com/<yourrepo>/docker``` and run -> ```vim```. Once it starts up, open docker.go for example and run this command by pressing ```:```
 
 ```bash
-:GoInstallBinaries
+GoInstallBinaries #Will look like this -> :GoInstallBinaries with the colon.
 ```
 
 This will install all of the remaining dependencies and you should be ready to build away.
