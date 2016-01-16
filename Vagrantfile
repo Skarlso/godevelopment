@@ -33,6 +33,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", path: "install_go.sh", privileged: false
   if ENV['INSTALL_DOCKER']
       config.vm.provision "shell", path: "install_docker.sh"
+      config.vm.provision "shell", path: "setup_docker_env.sh", args: ENV['DOCKER_REPO'] ? ENV['DOCKER_REPO'] : "docker", privileged: false
   end
 
   if ENV['INSTALL_HUGO']

@@ -27,12 +27,24 @@ Variables
 
 You need to export these variables into a ```.env``` file.
 
-Environment variables that can be used (also their default value) => 
+Environment variables that can be used (also their default value) =>
 * VAGRANT_BOX=ubuntu/trusty64
 * GO_VM_MEMORY=6024
 * GO_VM_NAME=go_development
 * GO_VM_CPU=2
 * INSTALL_DOCKER=true
+* DOCKER_REPO=docker
+* INSTALL_HUGO=true
+* HUGO_REPO=spf13
+
+Sample *.env* file:
+
+```bash
+GO_VM_MEMORY=8192
+GO_VM_NAME=docker_dev
+INSTALL_DOCKER=true
+DOCKER_REPO=skarlso
+```
 
 The Environment
 ===============
@@ -89,7 +101,7 @@ Docker
 
 Originally I'm using this environment to develop Docker, so I need docker setup as well. This installs docker-engine and adds vagrant user to the sudo docker group so docker can be called without sudo.
 
-In order to do that, please set the following environment variable:
+In order to do that, please set the following environment variable in .env:
 ```
 echo INSTALL_DOCKER=true > .env && vagrant up
 ```
@@ -105,6 +117,8 @@ echo INSTALL_HUGO=true > .env && vagrant up
 
 Otto
 ====
+
+*EXPERIMENTAL*
 
 To Start otto you have to have the binary which you can download from here: [Install Otto](https://ottoproject.io/intro/getting-started/install.html).
 
@@ -122,7 +136,7 @@ After that, start the dev environment.
 otto dev
 ```
 
-Note: I encountered several problems while using otto. This just shows how immature otto is currently, and even though we are give some customization options, it uses a lot of Magic, which I do not like. Magic always leads to problems.
+Note: I encountered several problems while using otto. This just shows how immature it is currently, and even though we are given some customization options, it uses a lot of Magic, which I do not like. Magic always leads to problems.
 
 
 Support
