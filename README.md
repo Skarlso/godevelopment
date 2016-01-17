@@ -108,11 +108,9 @@ echo INSTALL_DOCKER=true > .env && vagrant up
 
 Docker will be installed with go get github.com/YOURREPO/docker and then I'm running a go get ./... in the Docker folder. This will install most of the third party stuff which Docker will require if you would like to use VimGo.
 
-After that, it is advised that you run the following commands:
+After that, it is advised that you run the following command:
 
 ```bash
-make test
-make deb # Will take a long time
 make # After deb, this will probably not run that long
 ```
 
@@ -124,10 +122,9 @@ GoInstallBinaries #Will look like this -> :GoInstallBinaries with the colon.
 
 This will install all of the remaining dependencies and you should be ready to build away.
 
-Troubleshooting Docker
-----------------------
+Note: But, since Docker is development in a Docker Dev Container this is almost not important anyways.
 
-There is a slight problem with Vim, not being able to find "github.com/docker/docker/autogen/dockerversion". This is because of various reasons docker not following the way where you could easily get all of it's dependencies with go get -u -f -t... Should go away after make. If not, just comment that line out and work. Just don't forget to comment it back in....
+See this section in Docker, How to contribute Documentation => [Work with development container](https://docs.docker.com/opensource/project/set-up-dev-env/)
 
 Hugo
 ----
