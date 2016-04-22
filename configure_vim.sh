@@ -12,6 +12,6 @@ cp /vagrant_data/onedark.vim /home/vagrant/.vim/colors
 #Ignore that vundle install will fail because YouCompleteMe must be built
 vim +PluginInstall +qall || true
 #Build YouCompleteMe
-cd /home/vagrant/.vim/bundle/YouCompleteMe
+cd /home/vagrant/.vim/bundle/YouCompleteMe || exit
 #Ignore any errors
 ./install.py || true

@@ -1,10 +1,11 @@
 #!/bin/bash
 
+GO_VERSION=${GO_VERSION:-1.6.1}
 mkdir /home/vagrant/gohome
 mkdir /home/vagrant/gohome/src
 mkdir /home/vagrant/gohome/bin
 mkdir /home/vagrant/gohome/pkg
-wget https://storage.googleapis.com/golang/go1.6.1.linux-amd64.tar.gz -O /home/vagrant/go.tar.gz
+wget https://storage.googleapis.com/golang/go$GO_VERSION.linux-amd64.tar.gz -O /home/vagrant/go.tar.gz
 sudo tar -C /usr/local -xzf /home/vagrant/go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/home/vagrant/gohome
