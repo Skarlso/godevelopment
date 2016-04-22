@@ -32,6 +32,7 @@ Environment variables that can be used (also their default value) =>
 * GO_VM_MEMORY=6024
 * GO_VM_NAME=go_development
 * GO_VM_CPU=2
+* GO_VERSION=1.6.1 | Default is 1.6.1
 * INSTALL_DOCKER=true
 * DOCKER_REPO=docker
 * INSTALL_HUGO=true
