@@ -1,0 +1,57 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+#
+# Vagrantfile for testing vagrant-alpine
+#
+
+Vagrant.configure(2) do |config|
+  # config.ssh.username = 'vagrant'
+  # config.ssh.password = 'vagrant'
+  # config.ssh.shell = '/bin/sh'
+
+  #
+  # Networking
+  #
+  # DHCP
+  # config.vm.network 'private_network', type: 'dhcp'
+  #
+  # Static (replace <IP> with an appropriate private address)
+  # config.vm.network 'private_network', ip: '<IP>', auto_config: true
+
+  #
+  # Shared folders
+  #
+  # Note, for shared folders via NFS a static IP *must* be provided
+  # until guest additions can be built and installed out of main.
+  # The reason being that although a DHCP interface does successfully
+  # get an IP, virtualbox is unaware of it and therefore cannot
+  # provide it to Vagrant.
+  #
+  # If not assigning a static IP, ensure the default
+  # share is disabled.
+  config.env.enable
+  config.vm.box = 'maier/alpine-3.3.1-x86_64'
+  config.vm.network 'forwarded_port', guest: 32_768, host: 32_768
+  config.vm.network 'forwarded_port', guest: 8989, host: 8989
+  config.vm.synced_folder 'data', '/vagrant_data'
+  # Customize the amount of memory on the VM:
+  memory = ENV['GO_VM_MEMORY'] ? ENV['GO_VM_MEMORY'] : 6024
+  cpus = ENV['GO_VM_CPU'] ? ENV['GO_VM_CPU'] : 2
+  name = ENV['GO_VM_NAME'] ? ENV['GO_VM_NAME'] : 'go_development'
+
+  config.vm.provider 'virtualbox' do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+
+    vb.memory = memory
+    vb.name = name
+    vb.cpus = cpus
+  end
+
+  # Enabling provisioning - run shell script to upate
+  # installed alpine.
+  # config.vm.provision 'shell', inline: <<-SHELL
+  #   apk update && apk upgrade
+  # SHELL
+end
