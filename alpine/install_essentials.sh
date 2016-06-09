@@ -9,7 +9,7 @@ sudo apk add build-base gcc abuild binutils binutils-doc gcc-doc
 sudo apk add man man-pages
 sudo apk add htop vim git wget mc nmap lynx curl mercurial bzr
 sudo apk add cmake cmake-doc extra-cmake-modules extra-cmake-modules-doc
-sudo apk add .build-dependencies make
+sudo apk add make
 sudo apk add python-dev ctags
 sudo apk add perl shadow make ncurses
 sudo apk add iptables
