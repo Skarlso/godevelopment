@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat << EOF > /etc/apk/repositories
+cat > /etc/apk/repositories <<EOF
 http://dl-6.alpinelinux.org/alpine/edge/community/
 http://dl-6.alpinelinux.org/alpine/edge/community/
 http://dl-5.alpinelinux.org/alpine/v3.3/main/
@@ -9,7 +9,7 @@ http://nl.alpinelinux.org/alpine/edge/testing
 http://nl.alpinelinux.org/alpine/v3.3/main/
 EOF
 
-cat << EOF > ~/.bashrc
+cat > /home/vagrant/.bash_profile <<EOF
 # If id command returns zero, you’ve root access.
 if [ $(id -u) -eq 0 ];
 then # you are root, set red colour prompt
@@ -20,3 +20,5 @@ fi
 
 alias ll='ls -l'
 EOF
+
+sudo chown vagrant:vagrant /home/vagrant/.bash_profile
