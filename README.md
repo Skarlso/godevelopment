@@ -159,6 +159,10 @@ otto dev
 
 Note: I encountered several problems while using otto. This just shows how immature it is currently, and even though we are given some customization options, it uses a lot of Magic, which I do not like. Magic always leads to problems.
 
+Docker
+======
+
+A Docker version of this project can be found here: [GoDevDocker Environmnet](https://github.com/Skarlso/godevdockerbase).
 
 Support
 =======
