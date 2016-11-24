@@ -1,0 +1,3 @@
+[submodule "godevdockerbase"]
+	path = godevdockerbase
+	url = https://github.com/Skarlso/godevdockerbase
