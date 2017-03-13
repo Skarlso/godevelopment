@@ -4,7 +4,6 @@ Go Development Environment
 Prerequisites
 =============
 
-
 Vagrant Installation
 --------------------
 
@@ -138,6 +137,8 @@ echo INSTALL_HUGO=true > .env && vagrant up
 
 Otto
 ====
+
+**NOTE**: The Otto project was discontinued by HashiCorp.
 
 *EXPERIMENTAL*
 
