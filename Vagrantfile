@@ -7,7 +7,7 @@
 # you're doing.
 Vagrant.configure(2) do |config|
   config.env.enable
-  config.vm.box = 'ubuntu/trusty64' unless ENV['VAGRANT_BOX']
+  config.vm.box = 'ubuntu/xenial64' unless ENV['VAGRANT_BOX']
   config.vm.network 'forwarded_port', guest: 32_768, host: 32_768
   config.vm.network 'forwarded_port', guest: 8989, host: 8989
   config.vm.synced_folder 'data', '/vagrant_data'
