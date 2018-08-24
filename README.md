@@ -9,7 +9,7 @@ Vagrant Installation
 
 In order for this to work, you need a working version of vagrant. Please follow the appropriate instructions for your operating system.
 
-[Vagrant Install Guide](http://www.vagrantup.com/downloads)
+[Vagrant Download Page](https://www.vagrantup.com/downloads.html)
 
 Please note, that for vagrant to work, you need an appropriate virtualization agent. I recommend using Virtual Box.
 
