@@ -7,15 +7,15 @@
 # you're doing.
 Vagrant.configure(2) do |config|
   config.env.enable
-  config.vm.box = 'maier/alpine-3.3.1-x86_64'
+  config.vm.box = 'maier/alpine-3.8-x86_64'
   config.vm.network 'forwarded_port', guest: 32_768, host: 32_768
   config.vm.network 'forwarded_port', guest: 8989, host: 8989
   config.vm.synced_folder 'data', '/vagrant_data', disabled: true
   config.vm.synced_folder '.', '/vagrant', disabled: true
   # Customize the amount of memory on the VM:
-  memory = ENV['GO_VM_MEMORY'] ? ENV['GO_VM_MEMORY'] : 6024
-  cpus = ENV['GO_VM_CPU'] ? ENV['GO_VM_CPU'] : 2
-  name = ENV['GO_VM_NAME'] ? ENV['GO_VM_NAME'] : 'go_development'
+  memory = ENV['GO_VM_MEMORY'] || 6024
+  cpus = ENV['GO_VM_CPU'] || 2
+  name = ENV['GO_VM_NAME'] || 'go_development'
 
   config.vm.provider 'virtualbox' do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -35,19 +35,12 @@ Vagrant.configure(2) do |config|
     "               #{cpus}           "
   puts ' --------------------------------------------------------------------'\
     '------------------------------------'
+
   config.vm.provision 'shell', path: 'setup_alpine.sh'
   config.vm.provision 'shell', path: 'install_essentials.sh'
-  config.vm.provision 'shell', path: 'configure_vim.sh', privileged: false
   config.vm.provision 'shell', path: 'install_go.sh', privileged: false
   if ENV['INSTALL_DOCKER']
     config.vm.provision 'shell', path: 'install_docker.sh'
-    # config.vm.provision 'shell', path: 'setup_docker_env.sh', args:
-    #   ENV['DOCKER_REPO'] ? ENV['DOCKER_REPO'] : 'docker', privileged: false
   end
-
-  # if ENV['INSTALL_HUGO']
-  #   config.vm.provision 'shell', path: 'install_hugo.sh', args:
-  #     ENV['HUGO_REPO'] ? ENV['HUGO_REPO'] : 'spf13', privileged: false
-  # end
   config.vm.provision 'shell', path: 'source_bashrc.sh', privileged: false
 end
